@@ -8,14 +8,14 @@ namespace ResaVoyages.LibVol
 
     public class Vol
     {
-        private int idVol { get; set; }
-        private string name { get; set; }
-        private DateTime departureDate { get; set; }
-        private DateTime arrivalDate { get; set; }
-        private string departureCity { get; set; }
-        private string arrivalCity { get; set; }
-        private float price { get; set; }
-        private int capacity { get; set; }
+        public int idVol {  get; set; }
+        public string name { get; set; }
+        public DateTime departureDate { get; set; }
+        public DateTime arrivalDate { get; set; }
+        public string departureCity { get; set; }
+        public string arrivalCity { get; set; }
+        public float price { get; set; }
+        public int capacity { get; set; }
 
         public Vol(int idVol, string name, DateTime departureDate, DateTime arrivalDate, string departureCity, string arrivalCity, float price, int capacity)
         {
