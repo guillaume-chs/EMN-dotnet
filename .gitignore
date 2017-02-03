@@ -2,6 +2,10 @@
 # compiled output
 /dist
 /tmp
+PKG-vols-hotels/WebApplication/app/*.js
+PKG-vols-hotels/WebApplication/app/*.map
+PKG-vols-hotels/WebApplication/app/*/*.js
+PKG-vols-hotels/WebApplication/app/*/*.map
 
 # dependencies
 /node_modules
