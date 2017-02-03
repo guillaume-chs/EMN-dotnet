@@ -27,5 +27,19 @@ namespace ResaVoyages.DAL.DALVols
             return CallSP(command, SERVER_NAME, BD_NAME, TABLE_NAME);
 
         }
+
+        public DataSet GetVolsByDepartureDateDepartureCityArrivalCity(System.DateTime dateDeparture, string departureCity, string arrivalCity)
+        {
+            SqlCommand command = new SqlCommand("sp_getVolsByDepartureDateDepartureCityArrivalCity");
+            command.CommandType = CommandType.StoredProcedure;
+            
+            command.Parameters.Add("@departureDate", SqlDbType.DateTime);
+            command.Parameters["@departureDate"].Value = dateDeparture;
+            command.Parameters.Add("@departureCity", SqlDbType.VarChar);
+            command.Parameters["@departureCity"].Value = departureCity;
+            command.Parameters.Add("@arrivalCity", SqlDbType.VarChar);
+            command.Parameters["@arrivalCity"].Value = arrivalCity;
+            return CallSP(command, SERVER_NAME, BD_NAME, TABLE_NAME);
+        }
     }
 }
