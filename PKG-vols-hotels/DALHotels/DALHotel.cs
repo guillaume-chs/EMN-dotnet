@@ -1,11 +1,11 @@
-﻿using ResaVoyages.DALGeneric;
+﻿using static ResaVoyages.DAL.DALGeneric.DALGeneric;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace ResaVoyages.DALHotels
+namespace ResaVoyages.DAL.DALHotels
 {
-    public class Hotels
+    public class DALHotels
     {
         public const string SERVER_NAME = "KEPA-PC\\SQLEXPRESS";
         public const string DB_NAME = "HOTELS";
@@ -16,9 +16,9 @@ namespace ResaVoyages.DALHotels
             SqlCommand command = new SqlCommand("sp_getHotels");
             command.CommandType = CommandType.StoredProcedure;
 
-            return Generic.callSP(command, SERVER_NAME, DB_NAME, TABLE_NAME);
-
+            return CallSP(command, SERVER_NAME, DB_NAME, TABLE_NAME);
         }
+
         public DataSet GetHotelById(int id)
         {
             SqlCommand command = new SqlCommand("sp_getHotelById");
@@ -26,9 +26,10 @@ namespace ResaVoyages.DALHotels
 
             command.Parameters.Add("@ID", SqlDbType.Int);
             command.Parameters["@ID"].Value = id;
-            return Generic.callSP(command, SERVER_NAME, DB_NAME, TABLE_NAME);
 
+            return CallSP(command, SERVER_NAME, DB_NAME, TABLE_NAME);
         }
+
         public DataSet GetHotelByCity(String city)
         {
             SqlCommand command = new SqlCommand("sp_getHotelByCity");
@@ -36,9 +37,8 @@ namespace ResaVoyages.DALHotels
 
             command.Parameters.Add("@CITY", SqlDbType.VarChar, 50);
             command.Parameters["@CITY"].Value = city;
-            return Generic.callSP(command, SERVER_NAME, DB_NAME, TABLE_NAME);
 
+            return CallSP(command, SERVER_NAME, DB_NAME, TABLE_NAME);
         }
     }
-
 }

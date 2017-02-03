@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var JourneyResearch_1 = require('../shared/model/JourneyResearch');
+var core_1 = require("@angular/core");
+var JourneyResearch_1 = require("../shared/model/JourneyResearch");
 var SearchFormComponent = (function () {
     function SearchFormComponent() {
         this.model = new JourneyResearch_1.JourneyResearch(new Date(), "", "", 1, 1);
@@ -22,15 +22,15 @@ var SearchFormComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    SearchFormComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'search-form',
-            templateUrl: './search-form.component.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], SearchFormComponent);
     return SearchFormComponent;
 }());
+SearchFormComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'search-form',
+        templateUrl: './search-form.component.html'
+    }),
+    __metadata("design:paramtypes", [])
+], SearchFormComponent);
 exports.SearchFormComponent = SearchFormComponent;
 //# sourceMappingURL=search-form.component.js.map

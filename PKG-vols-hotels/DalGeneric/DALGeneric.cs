@@ -2,11 +2,11 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace ResaVoyages.DALGeneric
+namespace ResaVoyages.DAL.DALGeneric
 {
-    public static class Generic
+    public class DALGeneric
     {
-        public static DataSet callSP(SqlCommand command, String serverName, String dbName, String tableName)
+        public static DataSet CallSP(SqlCommand command, String serverName, String dbName, String tableName)
         {
             DataSet result = new DataSet();
 
