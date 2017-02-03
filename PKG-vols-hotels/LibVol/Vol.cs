@@ -5,6 +5,7 @@ using ResaVoyages.DALVols;
 
 namespace ResaVoyages.LibVol
 {
+
     public class Vol
     {
         private int idVol { get; set; }
@@ -33,7 +34,7 @@ namespace ResaVoyages.LibVol
             new Vol(0, name, departureDate, arrivalDate, departureCity, arrivalCity, price, capacity);
         }
 
-        public static List<Vol> dataSetToVols(DataSet dataSet)
+        public static List<Vol> DataSetToVols(DataSet dataSet)
         {
             List<Vol> vols = new List<Vol>();
 
@@ -53,6 +54,32 @@ namespace ResaVoyages.LibVol
             }
 
             return vols;
+        }
+
+        /**
+         * Renvoie la liste des couples (ville de départ, villes d'arrivée)
+         */
+        public static Dictionary<string, List<string>> getCities()
+        {
+            Vols dalVols = new Vols();
+            List<Vol> vols = DataSetToVols(dalVols.GetVols());
+
+            Dictionary<string, List<string>> travels = new Dictionary<string, List<string>>();
+            List<string> cities = new List<string>();
+
+            foreach (Vol v in vols)
+            {
+                if (!cities.Contains(v.departureCity))
+                {
+                    cities.Add(v.departureCity);
+                }
+            }
+
+            cities.ForEach(city =>
+            {
+                travels.Add(city, vols.FindAll(v => v.departureCity == city).ConvertAll(v => v.arrivalCity));
+            });
+            return travels;
         }
     }
 }
