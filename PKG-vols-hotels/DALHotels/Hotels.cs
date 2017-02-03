@@ -1,20 +1,16 @@
-﻿using DalGeneric;
+﻿using ResaVoyages.DALGeneric;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DALHotels
+namespace ResaVoyages.DALHotels
 {
     public class Hotels
     {
         public const string SERVER_NAME = "KEPA-PC\\SQLEXPRESS";
         public const string DB_NAME = "HOTELS";
         public const string TABLE_NAME = "HOTELS";
-        
+
         public DataSet GetHotels()
         {
             SqlCommand command = new SqlCommand("sp_getHotels");
@@ -41,7 +37,7 @@ namespace DALHotels
             command.Parameters.Add("@CITY", SqlDbType.VarChar, 50);
             command.Parameters["@CITY"].Value = city;
             return Generic.callSP(command, SERVER_NAME, DB_NAME, TABLE_NAME);
-            
+
         }
     }
 

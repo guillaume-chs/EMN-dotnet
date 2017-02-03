@@ -41,14 +41,14 @@ namespace ResaVoyages.LibVol
             {
                 object[] cols = vol.ItemArray;
                 vols.Add(new Vol(
-                    (int) cols[0],
-                    (string) cols[1],
-                    (DateTime) cols[2],
-                    (DateTime) cols[3],
-                    (string) cols[4],
-                    (string) cols[5],
-                    (float) cols[6],
-                    (int) cols[7]
+                    (int)cols[0],
+                    (string)cols[1],
+                    (DateTime)cols[2],
+                    (DateTime)cols[3],
+                    (string)cols[4],
+                    (string)cols[5],
+                    (float)cols[6],
+                    (int)cols[7]
                 ));
             }
 

@@ -1,7 +1,6 @@
-﻿using System;
+﻿using ResaVoyages.DALGeneric;
 using System.Data;
 using System.Data.SqlClient;
-using DalGeneric;
 
 namespace ResaVoyages.DALVols
 {
@@ -10,7 +9,7 @@ namespace ResaVoyages.DALVols
         public const string SERVER_NAME = "PAUL\\SQLEXPRESS";
         public const string BD_NAME = "VOLS";
         public const string TABLE_NAME = "VOLS";
-        
+
         public DataSet GetVolById(int id)
         {
             SqlCommand command = new SqlCommand("sp_getVolById");
