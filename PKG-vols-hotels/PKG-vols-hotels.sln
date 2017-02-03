@@ -11,11 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SVC", "SVC", "{D967FD76-99F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{1C08BAF4-2B87-4225-B9EA-C1B61C63B8E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteWeb", "SiteWeb\SiteWeb.csproj", "{0A0F0C0B-5BA3-494B-8EC5-FD3844F94588}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteWebAngular2ASP", "SiteWebAngular2ASP\SiteWebAngular2ASP.csproj", "{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{81DD0E7F-582F-499B-8C9B-A8AF47D6C147}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALHotels", "DALHotels\DALHotels.csproj", "{F0D60E40-0F99-4A3E-8334-4B67FCDB894D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,25 +21,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0A0F0C0B-5BA3-494B-8EC5-FD3844F94588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A0F0C0B-5BA3-494B-8EC5-FD3844F94588}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A0F0C0B-5BA3-494B-8EC5-FD3844F94588}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A0F0C0B-5BA3-494B-8EC5-FD3844F94588}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81DD0E7F-582F-499B-8C9B-A8AF47D6C147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81DD0E7F-582F-499B-8C9B-A8AF47D6C147}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81DD0E7F-582F-499B-8C9B-A8AF47D6C147}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81DD0E7F-582F-499B-8C9B-A8AF47D6C147}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{0A0F0C0B-5BA3-494B-8EC5-FD3844F94588} = {1C08BAF4-2B87-4225-B9EA-C1B61C63B8E9}
-		{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC} = {1C08BAF4-2B87-4225-B9EA-C1B61C63B8E9}
-		{81DD0E7F-582F-499B-8C9B-A8AF47D6C147} = {1C08BAF4-2B87-4225-B9EA-C1B61C63B8E9}
-	EndGlobalSection
 EndGlobal
