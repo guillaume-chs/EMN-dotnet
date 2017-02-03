@@ -1,0 +1,26 @@
+﻿<div class="container">
+    <h3>A la recherche du voyage parfait</h3>
+    
+    <p>{{diagnostic}}</p>
+    
+
+    <form>
+        <div class="form-group">
+            <label for="departure_city">Ville de départ</label>
+            <input type="text" class="form-control" id="departure_city" name="Ville de départ" required [(ngModel)]="model.departure_city">
+        </div>
+        <div class="form-group">
+            <label for="arrival_city">Ville d'arrivée</label>
+            <input type="text" class="form-control" id="arrival_city" name="Ville d'arrivée" required [(ngModel)]="model.arrival_city">
+        </div>
+        <div class="form-group">
+            <label for="departure_date">Date de départ</label>
+            <input type="datetime" class="form-control" id="departure_date" name="Date de départ" required [(ngModel)]="model.departure_date">
+        </div>
+        <div class="form-group">
+            <label for="nb_passengers">Nombre de voyageurs</label>
+            <input type="number" class="form-control" id="nb_passengers" name="Nombre de voyageurs" required [(ngModel)]="model.nb_passengers">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
