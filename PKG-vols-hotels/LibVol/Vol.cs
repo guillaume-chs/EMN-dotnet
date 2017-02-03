@@ -1,32 +1,32 @@
-﻿using System;
+﻿using ResaVoyages.DAL.DALVols;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using ResaVoyages.DALVols;
 
-namespace ResaVoyages.LibVol
+namespace ResaVoyages.BL.LibVol
 {
 
     public class Vol
     {
-        private int idVol { get; set; }
-        private string name { get; set; }
-        private DateTime departureDate { get; set; }
-        private DateTime arrivalDate { get; set; }
-        private string departureCity { get; set; }
-        private string arrivalCity { get; set; }
-        private float price { get; set; }
-        private int capacity { get; set; }
+        private int IdVol { get; set; }
+        private string Name { get; set; }
+        private DateTime DepartureDate { get; set; }
+        private DateTime ArrivalDate { get; set; }
+        private string DepartureCity { get; set; }
+        private string ArrivalCity { get; set; }
+        private float Price { get; set; }
+        private int Capacity { get; set; }
 
         public Vol(int idVol, string name, DateTime departureDate, DateTime arrivalDate, string departureCity, string arrivalCity, float price, int capacity)
         {
-            this.idVol = idVol;
-            this.name = name;
-            this.departureDate = departureDate;
-            this.arrivalDate = arrivalDate;
-            this.departureCity = departureCity;
-            this.arrivalCity = arrivalCity;
-            this.price = price;
-            this.capacity = capacity;
+            this.IdVol = idVol;
+            this.Name = name;
+            this.DepartureDate = departureDate;
+            this.ArrivalDate = arrivalDate;
+            this.DepartureCity = departureCity;
+            this.ArrivalCity = arrivalCity;
+            this.Price = price;
+            this.Capacity = capacity;
         }
 
         public Vol(string name, DateTime departureDate, DateTime arrivalDate, string departureCity, string arrivalCity, float price, int capacity)
@@ -38,7 +38,7 @@ namespace ResaVoyages.LibVol
         {
             List<Vol> vols = new List<Vol>();
 
-            foreach (DataRow vol in dataSet.Tables[Vols.TABLE_NAME].Rows)
+            foreach (DataRow vol in dataSet.Tables[DALVols.TABLE_NAME].Rows)
             {
                 object[] cols = vol.ItemArray;
                 vols.Add(new Vol(
@@ -61,7 +61,7 @@ namespace ResaVoyages.LibVol
          */
         public static Dictionary<string, List<string>> getCities()
         {
-            Vols dalVols = new Vols();
+            DALVols dalVols = new DALVols();
             List<Vol> vols = DataSetToVols(dalVols.GetVols());
 
             Dictionary<string, List<string>> travels = new Dictionary<string, List<string>>();
@@ -69,16 +69,17 @@ namespace ResaVoyages.LibVol
 
             foreach (Vol v in vols)
             {
-                if (!cities.Contains(v.departureCity))
+                if (!cities.Contains(v.DepartureCity))
                 {
-                    cities.Add(v.departureCity);
+                    cities.Add(v.DepartureCity);
                 }
             }
 
             cities.ForEach(city =>
             {
-                travels.Add(city, vols.FindAll(v => v.departureCity == city).ConvertAll(v => v.arrivalCity));
+                travels.Add(city, vols.FindAll(v => v.DepartureCity == city).ConvertAll(v => v.ArrivalCity));
             });
+
             return travels;
         }
     }

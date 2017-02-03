@@ -40,8 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Vols.cs" />
+    <Compile Include="DALVols.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DalGeneric\DALGeneric.csproj">
+      <Project>{1976EA4A-ACCF-4B51-991D-EA76D9C715D2}</Project>
+      <Name>DALGeneric</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
