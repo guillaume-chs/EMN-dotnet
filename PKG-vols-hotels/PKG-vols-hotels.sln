@@ -23,8 +23,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibVol", "LibVol\LibVol.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALGeneric", "DalGeneric\DALGeneric.csproj", "{1976EA4A-ACCF-4B51-991D-EA76D9C715D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{81E8433B-0A02-44EC-BF79-D9BF0DE6FF67}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,10 +53,6 @@ Global
 		{1976EA4A-ACCF-4B51-991D-EA76D9C715D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1976EA4A-ACCF-4B51-991D-EA76D9C715D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1976EA4A-ACCF-4B51-991D-EA76D9C715D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81E8433B-0A02-44EC-BF79-D9BF0DE6FF67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81E8433B-0A02-44EC-BF79-D9BF0DE6FF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81E8433B-0A02-44EC-BF79-D9BF0DE6FF67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81E8433B-0A02-44EC-BF79-D9BF0DE6FF67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

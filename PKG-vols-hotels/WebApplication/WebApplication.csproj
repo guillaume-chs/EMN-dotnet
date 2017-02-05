@@ -80,7 +80,6 @@
     <Content Include="app\search-form\search-form.component.html" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
-    <Content Include="api\products\products.json" />
     <Content Include="package.json" />
     <Content Include="systemjs.config.js" />
     <Content Include="tsconfig.json" />

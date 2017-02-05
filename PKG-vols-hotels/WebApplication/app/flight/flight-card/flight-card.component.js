@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var flights_service_1 = require('../../shared/services/flights.service');
+var core_1 = require("@angular/core");
+var flights_service_1 = require("../../shared/services/flights.service");
 var module;
 var FlightCardComponent = (function () {
     function FlightCardComponent(flightsService) {
@@ -20,17 +20,17 @@ var FlightCardComponent = (function () {
             _this.flight = flight;
         });
     }
-    FlightCardComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'flight-card',
-            providers: [],
-            templateUrl: './flight-card.component.html',
-            styles: ["\n        .airplane-img {\n            min-width: 32px;\n            width: 15%;\n            margin-right: 1rem;\n        }\n        .airplane-content {\n            display: inline-block;\n            width: 66%;\n        }\n    "]
-        }), 
-        __metadata('design:paramtypes', [flights_service_1.FlightsService])
-    ], FlightCardComponent);
     return FlightCardComponent;
 }());
+FlightCardComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'flight-card',
+        providers: [],
+        templateUrl: './flight-card.component.html',
+        styles: ["\n        .airplane-img {\n            min-width: 32px;\n            width: 15%;\n            margin-right: 1rem;\n        }\n        .airplane-content {\n            display: inline-block;\n            width: 66%;\n        }\n    "]
+    }),
+    __metadata("design:paramtypes", [flights_service_1.FlightsService])
+], FlightCardComponent);
 exports.FlightCardComponent = FlightCardComponent;
 //# sourceMappingURL=flight-card.component.js.map

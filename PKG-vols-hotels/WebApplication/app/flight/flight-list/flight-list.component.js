@@ -8,8 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var flights_service_1 = require('../../shared/services/flights.service');
+var core_1 = require("@angular/core");
+var flights_service_1 = require("../../shared/services/flights.service");
 var module;
 var FlightListComponent = (function () {
     function FlightListComponent(flightsService) {
@@ -36,17 +36,17 @@ var FlightListComponent = (function () {
         this.flightsService.selectFlight(this.selectedFlight);
         this.submitted = true;
     };
-    FlightListComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'flight-list',
-            providers: [],
-            templateUrl: './flight-list.component.html',
-            styles: ["\n        tr.selected {\n            background-color: #a8a8a8;\n        }\n        tr.selected:hover {\n            background-color: #a8a8a8;\n        }\n    "]
-        }), 
-        __metadata('design:paramtypes', [flights_service_1.FlightsService])
-    ], FlightListComponent);
     return FlightListComponent;
 }());
+FlightListComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'flight-list',
+        providers: [],
+        templateUrl: './flight-list.component.html',
+        styles: ["\n        tr.selected {\n            background-color: #a8a8a8;\n        }\n        tr.selected:hover {\n            background-color: #a8a8a8;\n        }\n    "]
+    }),
+    __metadata("design:paramtypes", [flights_service_1.FlightsService])
+], FlightListComponent);
 exports.FlightListComponent = FlightListComponent;
 //# sourceMappingURL=flight-list.component.js.map

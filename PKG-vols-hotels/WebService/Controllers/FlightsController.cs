@@ -13,10 +13,10 @@ namespace WebService.Controllers
             return Vol.getCities();
         }
         
-        public List<Vol> GetByDepartureCity(string DepartureCity)
+        public List<Vol> GetByDepartureCity(string departureCity)
         {
             // TODO : use DAL
-            return Vol.DataSetToVols(new DALVols().GetVols()).FindAll(v => v.DepartureCity == DepartureCity);
+            return Vol.DataSetToVols(new DALVols().GetVols()).FindAll(v => v.DepartureCity == departureCity);
         }
     }
 }

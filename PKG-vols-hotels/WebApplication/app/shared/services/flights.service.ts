@@ -1,4 +1,5 @@
 ﻿import { Injectable, EventEmitter } from '@angular/core';
+import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class FlightsService {
@@ -7,9 +8,16 @@ export class FlightsService {
     private flightsChange: EventEmitter<any> = new EventEmitter();
     private flightSelection: EventEmitter<any> = new EventEmitter();
 
+    constructor(public http: Http) {
+    }
+
     public searchFlights(): void {
         this.f = database;
         this.flightsChange.emit(this.f);
+
+        this.http.get("http://localhost:53046/api/flights").subscribe(res => {
+            console.log(res.json());
+        });
     }
 
     public selectFlight(flightId: number) {

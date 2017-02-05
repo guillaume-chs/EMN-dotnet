@@ -8,9 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var FlightsService = (function () {
-    function FlightsService() {
+    function FlightsService(http) {
+        this.http = http;
         this.f = [];
         this.selectedIndex = -1;
         this.flightsChange = new core_1.EventEmitter();
@@ -19,6 +21,9 @@ var FlightsService = (function () {
     FlightsService.prototype.searchFlights = function () {
         this.f = database;
         this.flightsChange.emit(this.f);
+        this.http.get("http://localhost:53046/api/flights").subscribe(function (res) {
+            console.log(res.json());
+        });
     };
     FlightsService.prototype.selectFlight = function (flightId) {
         for (var i = 0; i < this.f.length; i++) {
@@ -69,12 +74,12 @@ var FlightsService = (function () {
         enumerable: true,
         configurable: true
     });
-    FlightsService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], FlightsService);
     return FlightsService;
 }());
+FlightsService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], FlightsService);
 exports.FlightsService = FlightsService;
 var database = [
     { id: 1, name: "Paris - Nantes", departure_date: "07/02/2017", price: "40", capacity: 120 },
