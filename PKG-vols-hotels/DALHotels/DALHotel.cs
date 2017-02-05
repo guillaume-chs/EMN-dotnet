@@ -7,7 +7,7 @@ namespace ResaVoyages.DAL.DALHotels
 {
     public class DALHotels
     {
-        public const string SERVER_NAME = "KEPA-PC\\SQLEXPRESS";
+        public const string SERVER_NAME = "(localdb)\\MSSQLLocalDB";
         public const string DB_NAME = "HOTELS";
         public const string TABLE_NAME = "HOTELS";
 

@@ -1,0 +1,32 @@
+﻿<div class="container" *ngIf="hotels.length > 0 && !submitted">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <table class="highlight">
+                        <thead>
+                            <tr>
+                                <th data-field="name">Hôtel</th>
+                                <th data-field="city">Ville</th>
+                                <th data-field="capacity">Places disponibles</th>
+                                <th data-field="price">Prix</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let h of hotels;" [class.selected]="h.id === selectedHotel" (click)="selectHotel(h.id)">
+                                <td>{{h.name}}</td>
+                                <td>{{h.city}}</td>
+                                <td>{{h.capacity}}</td>
+                                <td>{{h.price}}€</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-action center">
+                    <button type="button" class="btn btn-default" [disabled]="selectedHotel === undefined" (click)="onSubmit()">Réserver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

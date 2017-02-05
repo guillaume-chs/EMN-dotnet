@@ -57,6 +57,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -144,7 +146,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DALVols\DALVols.csproj">
+      <Project>{2E711BE1-1593-45EE-A92A-33B2E1533B7B}</Project>
+      <Name>DALVols</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibVol\LibVol.csproj">
+      <Project>{11ABAC91-B166-433C-88CF-1464FDAB097C}</Project>
+      <Name>LibVol</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

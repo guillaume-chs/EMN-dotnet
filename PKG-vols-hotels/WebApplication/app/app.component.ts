@@ -1,10 +1,21 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'pm-app',
+    selector: 'resa-voyage',
     template: `
-        <h1>Angular2: Getting Started</h1>
+        <navbar></navbar>
+        
         <search-form></search-form>
+        
+        <div class="container">
+            <div class="row">
+                <flight-card></flight-card>
+                <hotel-card></hotel-card>
+            </div>
+        </div>
+
+        <flight-list></flight-list>
+        <hotel-list></hotel-list>
     `
 })
 export class AppComponent { }

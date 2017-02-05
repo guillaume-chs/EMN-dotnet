@@ -6,7 +6,7 @@ namespace ResaVoyages.DAL.DALVols
 {
     public class DALVols
     {
-        public const string SERVER_NAME = "PAUL\\SQLEXPRESS";
+        public const string SERVER_NAME = "(localdb)\\MSSQLLocalDB";
         public const string BD_NAME = "VOLS";
         public const string TABLE_NAME = "VOLS";
 
