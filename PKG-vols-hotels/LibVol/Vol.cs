@@ -2,19 +2,36 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization;
 
 namespace ResaVoyages.BL.LibVol
 {
-
+    [DataContract]
     public class Vol
     {
+        [DataMember]
         public int IdVol { get; set; }
+
+        [DataMember]
         public string Name { get; set; }
+
+        [DataMember]
         public DateTime DepartureDate { get; set; }
+
+        [DataMember]
         public DateTime ArrivalDate { get; set; }
+
+        [DataMember]
         public string DepartureCity { get; set; }
+
+        [DataMember]
         public string ArrivalCity { get; set; }
+
+        [DataMember]
         public float Price { get; set; }
+
+        [DataMember]
         public int Capacity { get; set; }
 
         public Vol(int idVol, string name, DateTime departureDate, DateTime arrivalDate, string departureCity, string arrivalCity, float price, int capacity)
