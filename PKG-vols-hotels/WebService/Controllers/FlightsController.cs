@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using ResaVoyages.BL.LibVol;
-using ResaVoyages.DAL.DALVols;
+using System;
+using System.Globalization;
 
 namespace WebService.Controllers
 {
@@ -10,13 +11,13 @@ namespace WebService.Controllers
     {
         public Dictionary<string, List<string>> Get()
         {
-            return Vol.getCities();
+            return Vol.GetCities();
         }
-        
-        public List<Vol> GetByDepartureCity(string departureCity)
+
+        [Route("api/flights/search")]
+        public List<Vol> GetVols([FromUri]string departureCity, [FromUri]string arrivalCity, [FromUri]string departureDate)
         {
-            // TODO : use DAL
-            return Vol.DataSetToVols(new DALVols().GetVols()).FindAll(v => v.DepartureCity == departureCity);
+            return Vol.GetVols(DateTime.ParseExact(departureDate, "dd/MM/yyyy", CultureInfo.InvariantCulture), departureCity, arrivalCity);
         }
     }
 }
