@@ -1,0 +1,32 @@
+﻿<div class="container" *ngIf="flights.length > 0 && !submitted">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <table class="highlight">
+                        <thead>
+                            <tr>
+                                <th data-field="name">Vol</th>
+                                <th data-field="departure_date">Date de départ</th>
+                                <th data-field="capacity">Places disponibles</th>
+                                <th data-field="price">Prix</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let f of flights;" [class.selected]="f.id === selectedFlight" (click)="selectFlight(f.id)">
+                                <td>{{f.name}}</td>
+                                <td>{{f.departure_date}}</td>
+                                <td>{{f.capacity}}</td>
+                                <td>{{f.price}}€</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-action center">
+                    <button type="button" class="btn btn-default" [disabled]="selectedFlight === undefined" (click)="onSubmit()">Réserver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

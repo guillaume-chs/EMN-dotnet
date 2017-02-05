@@ -8,18 +8,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var core_1 = require('@angular/core');
+var CitiesService = (function () {
+    function CitiesService() {
+        this.c = {};
+        this.c = database;
     }
-    return AppComponent;
+    Object.defineProperty(CitiesService.prototype, "cities", {
+        get: function () {
+            return this.c;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    CitiesService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], CitiesService);
+    return CitiesService;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'pm-app',
-        template: "\n        <h1>Angular2: Getting Started</h1>\n        <search-form></search-form>\n    "
-    }),
-    __metadata("design:paramtypes", [])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.CitiesService = CitiesService;
+var database = {
+    "Paris": null,
+    "Nantes": null,
+    "New York": null,
+    "Bordeaux": null
+};
+//# sourceMappingURL=cities.service.js.map

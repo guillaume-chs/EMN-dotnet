@@ -59,14 +59,14 @@ namespace ResaVoyages.BL.LibVol
             {
                 object[] cols = vol.ItemArray;
                 vols.Add(new Vol(
-                    (int)cols[0],
-                    (string)cols[1],
-                    (DateTime)cols[2],
-                    (DateTime)cols[3],
-                    (string)cols[4],
-                    (string)cols[5],
-                    (float)cols[6],
-                    (int)cols[7]
+                    Convert.ToInt32(cols[0]),
+                    Convert.ToString(cols[1]),
+                    Convert.ToDateTime(cols[2]),
+                    Convert.ToDateTime(cols[3]),
+                    Convert.ToString(cols[4]),
+                    Convert.ToString(cols[5]),
+                    Convert.ToSingle(cols[6]),
+                    Convert.ToInt32(cols[7])
                 ));
             }
 
