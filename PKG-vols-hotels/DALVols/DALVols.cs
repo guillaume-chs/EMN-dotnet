@@ -1,6 +1,7 @@
 ﻿using static ResaVoyages.DAL.DALGeneric.DALGeneric;
 using System.Data;
 using System.Data.SqlClient;
+using System;
 
 namespace ResaVoyages.DAL.DALVols
 {
@@ -32,7 +33,7 @@ namespace ResaVoyages.DAL.DALVols
         {
             SqlCommand command = new SqlCommand("sp_getVolsByDepartureDateDepartureCityArrivalCity");
             command.CommandType = CommandType.StoredProcedure;
-            
+
             command.Parameters.Add("@departureDate", SqlDbType.DateTime);
             command.Parameters["@departureDate"].Value = dateDeparture;
             command.Parameters.Add("@departureCity", SqlDbType.VarChar);
@@ -41,5 +42,43 @@ namespace ResaVoyages.DAL.DALVols
             command.Parameters["@arrivalCity"].Value = arrivalCity;
             return CallSP(command, SERVER_NAME, BD_NAME, TABLE_NAME);
         }
+        public DataSet DecrementVolSeatsById(int idVol, int nbSeats)
+        {
+            SqlCommand command = new SqlCommand("sp_decrementVolSeatsById");
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.Add("@idVol", SqlDbType.Int);
+            command.Parameters["@idVol"].Value = idVol;
+            command.Parameters.Add("@nbSeats", SqlDbType.Int);
+            command.Parameters["@nbSeats"].Value = nbSeats;
+            return CallSP(command, SERVER_NAME, BD_NAME, TABLE_NAME);
+        }
+        public DataSet GetVolCapacityById(int idVol, int nbSeats)
+        {
+            SqlCommand command = new SqlCommand("sp_getVolCapacityById");
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.Add("@idVol", SqlDbType.Int);
+            command.Parameters["@idVol"].Value = idVol;
+            return CallSP(command, SERVER_NAME, BD_NAME, TABLE_NAME);
+        }
+        public DataSet AddReservationVol(String nom, String prenom, int nbPersonne, int idVol)
+        {
+            SqlCommand command = new SqlCommand("sp_addReservationVol");
+            command.CommandType = CommandType.StoredProcedure;
+
+            command.Parameters.Add("@nom", SqlDbType.VarChar, 50);
+            command.Parameters["@nom"].Value = nom;
+            command.Parameters.Add("@prenom", SqlDbType.VarChar, 50);
+            command.Parameters["@prenom"].Value = prenom;
+            command.Parameters.Add("@nbPersonne", SqlDbType.Int);
+            command.Parameters["@nbPersonne"].Value = nbPersonne;
+            command.Parameters.Add("@idVol", SqlDbType.Int);
+            command.Parameters["@idVol"].Value = idVol;
+
+
+            return CallSP(command, SERVER_NAME, BD_NAME, TABLE_NAME);
+        }
+
     }
 }
