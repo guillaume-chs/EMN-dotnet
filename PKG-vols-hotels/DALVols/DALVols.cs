@@ -7,11 +7,7 @@ namespace ResaVoyages.DAL.DALVols
 {
     public class DALVols
     {
-<<<<<<< HEAD
-        public const string SERVER_NAME = "KEPA-PC\\SQLEXPRESS";
-=======
         public const string SERVER_NAME = "(localdb)\\MSSQLLocalDB";
->>>>>>> cb5db5505ff3271de93c956080a04c8ba8f3a743
         public const string BD_NAME = "VOLS";
         public const string TABLE_NAME = "VOLS";
         public const string DATE_FORMAT = "yyyy'/'MM'/'dd";
