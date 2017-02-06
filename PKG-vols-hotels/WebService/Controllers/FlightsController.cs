@@ -1,31 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using System.Web.Http.Description;
-using System.Web.Script.Serialization;
-using System.Web.Script.Services;
-using System.Web.Services;
-using Microsoft.Ajax.Utilities;
-using ResaVoyages.DALVols;
-using ResaVoyages.LibVol;
+using ResaVoyages.BL.LibVol;
+using System;
+using System.Globalization;
 
 namespace WebService.Controllers
 {
+    [Route("api/flights")]
     public class FlightsController : ApiController
     {
         public Dictionary<string, List<string>> Get()
         {
-            return Vol.getCities();
+            return Vol.GetCities();
         }
-        
-        public List<Vol> GetByDepartureCity(string departureCity)
+
+        [Route("api/flights/search")]
+        public List<Vol> GetVols([FromUri]string departureCity, [FromUri]string arrivalCity, [FromUri]string departureDate)
         {
-            // TODO : use DAL
-            return Vol.DataSetToVols(new Vols().GetVols()).FindAll(v => v.departureCity == departureCity);
+            return Vol.GetVols(DateTime.ParseExact(departureDate, "dd/MM/yyyy", CultureInfo.InvariantCulture), departureCity, arrivalCity);
         }
     }
 }

@@ -2,19 +2,36 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.Serialization.Json;
+using System.Runtime.Serialization;
 
 namespace ResaVoyages.BL.LibVol
 {
-
+    [DataContract]
     public class Vol
     {
+        [DataMember]
         public int IdVol { get; set; }
+
+        [DataMember]
         public string Name { get; set; }
+
+        [DataMember]
         public DateTime DepartureDate { get; set; }
+
+        [DataMember]
         public DateTime ArrivalDate { get; set; }
+
+        [DataMember]
         public string DepartureCity { get; set; }
+
+        [DataMember]
         public string ArrivalCity { get; set; }
+
+        [DataMember]
         public float Price { get; set; }
+
+        [DataMember]
         public int Capacity { get; set; }
 
         public Vol(int idVol, string name, DateTime departureDate, DateTime arrivalDate, string departureCity, string arrivalCity, float price, int capacity)
@@ -34,24 +51,35 @@ namespace ResaVoyages.BL.LibVol
             new Vol(0, name, departureDate, arrivalDate, departureCity, arrivalCity, price, capacity);
         }
 
-        public static List<Vol> DataSetToVols(DataSet dataSet)
+        protected static List<Vol> DataSetToVols(DataSet dataSet)
         {
             List<Vol> vols = new List<Vol>();
 
-            foreach (DataRow vol in dataSet.Tables[DALVols.TABLE_NAME].Rows)
+            if (dataSet.Tables.Count == 1 && dataSet.Tables.Contains(DALVols.TABLE_NAME))
             {
-                object[] cols = vol.ItemArray;
-                vols.Add(new Vol(
-                    (int)cols[0],
-                    (string)cols[1],
-                    (DateTime)cols[2],
-                    (DateTime)cols[3],
-                    (string)cols[4],
-                    (string)cols[5],
-                    (float)cols[6],
-                    (int)cols[7]
-                ));
+                foreach (DataRow vol in dataSet.Tables[DALVols.TABLE_NAME].Rows)
+                {
+                    object[] cols = vol.ItemArray;
+                    vols.Add(new Vol(
+                        Convert.ToInt32(cols[0]),
+                        Convert.ToString(cols[1]),
+                        Convert.ToDateTime(cols[2]),
+                        Convert.ToDateTime(cols[3]),
+                        Convert.ToString(cols[4]),
+                        Convert.ToString(cols[5]),
+                        Convert.ToSingle(cols[6]),
+                        Convert.ToInt32(cols[7])
+                    ));
+                }
             }
+
+            return vols;
+        }
+
+        public static List<Vol> GetVols(DateTime departureDate, String departureCity, String arrivalCity)
+        {
+            DALVols dalVols = new DALVols();
+            List<Vol> vols = DataSetToVols(dalVols.GetVolsByDepartureDateDepartureCityArrivalCity(departureDate, departureCity, arrivalCity));
 
             return vols;
         }
@@ -59,7 +87,7 @@ namespace ResaVoyages.BL.LibVol
         /**
          * Renvoie la liste des couples (ville de départ, villes d'arrivée)
          */
-        public static Dictionary<string, List<string>> getCities()
+        public static Dictionary<string, List<string>> GetCities()
         {
             DALVols dalVols = new DALVols();
             List<Vol> vols = DataSetToVols(dalVols.GetVols());

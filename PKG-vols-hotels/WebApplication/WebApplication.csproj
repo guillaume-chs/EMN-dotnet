@@ -69,14 +69,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.component.css" />
+    <Content Include="app\assets\images\airplane.png" />
+    <Content Include="app\assets\images\hotel.png" />
     <Content Include="app\assets\images\logo.jpg" />
-    <Content Include="app\home\welcome.component.html" />
-    <Content Include="app\search\search-form.component.html" />
-    <Content Include="app\shared\star.component.css" />
-    <Content Include="app\shared\star.component.html" />
+    <Content Include="app\flight\flight-card\flight-card.component.html" />
+    <Content Include="app\hotel\hotel-card\hotel-card.component.html" />
+    <Content Include="app\hotel\hotel-list\hotel-list.component.html" />
+    <Content Include="app\navbar\navbar.component.html" />
+    <Content Include="app\flight\flight-list\flight-list.component.html" />
+    <Content Include="app\search-form\search-form.component.html" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
-    <Content Include="api\products\products.json" />
     <Content Include="package.json" />
     <Content Include="systemjs.config.js" />
     <Content Include="tsconfig.json" />
@@ -97,14 +100,22 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
-    <TypeScriptCompile Include="app\home\welcome.component.ts" />
+    <TypeScriptCompile Include="app\flight\flight-card\flight-card.component.ts" />
+    <TypeScriptCompile Include="app\hotel\hotel-card\hotel-card.component.ts" />
+    <TypeScriptCompile Include="app\hotel\hotel-list\hotel-list.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
-    <TypeScriptCompile Include="app\search\search-form.component.ts" />
+    <TypeScriptCompile Include="app\navbar\navbar.component.ts" />
+    <TypeScriptCompile Include="app\flight\flight-list\flight-list.component.ts" />
+    <TypeScriptCompile Include="app\search-form\search-form.component.ts" />
     <TypeScriptCompile Include="app\shared\model\JourneyResearch.ts" />
+    <TypeScriptCompile Include="app\shared\services\cities.service.ts" />
+    <TypeScriptCompile Include="app\shared\services\hotels.service.ts" />
+    <TypeScriptCompile Include="app\shared\services\flights.service.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
