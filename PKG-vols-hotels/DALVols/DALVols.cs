@@ -36,7 +36,7 @@ namespace ResaVoyages.DAL.DALVols
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.Add("@departureDate", SqlDbType.DateTime);
-            command.Parameters["@departureDate"].Value = dateDeparture.ToString(DATE_FORMAT);;
+            command.Parameters["@departureDate"].Value = dateDeparture.ToString(DATE_FORMAT); ;
             command.Parameters.Add("@departureCity", SqlDbType.VarChar);
             command.Parameters["@departureCity"].Value = departureCity;
             command.Parameters.Add("@arrivalCity", SqlDbType.VarChar);
@@ -57,7 +57,7 @@ namespace ResaVoyages.DAL.DALVols
             command.Parameters["@nbSeats"].Value = nbSeats;
             return CallSP(command, SERVER_NAME, BD_NAME, TABLE_NAME);
         }
-        public DataSet GetVolCapacityById(int idVol, int nbSeats)
+        public DataSet GetVolCapacityById(int idVol)
         {
             SqlCommand command = new SqlCommand("sp_getVolCapacityById");
             command.CommandType = CommandType.StoredProcedure;
