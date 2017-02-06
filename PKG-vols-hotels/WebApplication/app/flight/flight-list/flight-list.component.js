@@ -17,11 +17,25 @@ var FlightListComponent = (function () {
         this.flightsService = flightsService;
         this.flights = [];
         this.selectedFlight = -1;
+        this.initialized = false;
         this.submitted = false;
-        this.flightsService.changeEventEmitter.subscribe(function (flights) {
+        this.loading = false;
+        this.flightsService.searchStartedEvent.subscribe(function () {
+            _this.loading = true;
+            if (!_this.initialized)
+                _this.initialized = true;
+        });
+        this.flightsService.selectionEventEmitter.subscribe(function (flight) {
+            if (!flight) {
+                _this.selectedFlight = -1;
+                _this.submitted = false;
+            }
+        });
+        this.flightsService.searchCompletedEvent.subscribe(function (flights) {
             _this.flights = flights;
             _this.submitted = false;
             _this.selectedFlight = -1;
+            _this.loading = false;
         });
     }
     FlightListComponent.prototype.selectFlight = function (index) {

@@ -1,24 +1,28 @@
 ﻿import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
+import { Flight } from '../model/Flight';
+
 @Injectable()
 export class FlightsService {
-    private f: any[] = [];
+    private f: Flight[] = [];
     private selectedIndex: number = -1;
-    private flightsChange: EventEmitter<any> = new EventEmitter();
-    private flightSelection: EventEmitter<any> = new EventEmitter();
+
+    private searchStarted: EventEmitter<any> = new EventEmitter();
+    private searchCompleted: EventEmitter<Flight[]> = new EventEmitter<Flight[]>();
+    private flightSelection: EventEmitter<Flight> = new EventEmitter<Flight>();
 
     constructor(public http: Http) {
     }
 
     public searchFlights(departureCity: string, arrivalCity: string, departureDate: string): void {
+        this.searchStarted.emit();
         const queryString = `?departureCity=${departureCity}&arrivalCity=${arrivalCity}&departureDate=${departureDate}`;
-
         this.http.get("http://localhost:53046/api/flights/search" + queryString).subscribe(res => {
-            console.log(res.json());
-
-            this.f = res.json();
-            this.flightsChange.emit(this.f);
+            this.f = res.json().map((rawF:any) => Flight.parseFlight(rawF));
+            this.searchCompleted.emit(this.f);
+        }, (error: any) => {
+            this.searchCompleted.emit([]);
         });
     }
 
@@ -30,7 +34,6 @@ export class FlightsService {
                 return;
             }
         }
-
         this.selectedIndex = -1;
     }
 
@@ -46,24 +49,20 @@ export class FlightsService {
     }
 
     public get selectedFlight(): any {
-        if (this.selectedIndex >= 0) {
-            return this.f[this.selectedIndex];
-        } else {
-            return -1;
-        }
+        return (this.selectedIndex >= 0)
+            ? this.f[this.selectedIndex]
+            : -1;
     }
 
-    public get changeEventEmitter(): EventEmitter<any> {
-        return this.flightsChange;
+    public get searchStartedEvent(): EventEmitter<any> {
+        return this.searchStarted;
     }
 
-    public get selectionEventEmitter(): EventEmitter<any> {
+    public get searchCompletedEvent(): EventEmitter<Flight[]> {
+        return this.searchCompleted;
+    }
+
+    public get selectionEventEmitter(): EventEmitter<Flight> {
         return this.flightSelection;
     }
 }
-
-
-const database = [
-    { id: 1, name: "Paris - Nantes", departure_date: "07/02/2017", price: "40", capacity: 120 },
-    { id: 2, name: "Bordeaux - New York", departure_date: "14/02/2017", price: "700", capacity: 700 }
-];

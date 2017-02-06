@@ -40,6 +40,9 @@ namespace ResaVoyages.DAL.DALVols
             command.Parameters["@departureCity"].Value = departureCity;
             command.Parameters.Add("@arrivalCity", SqlDbType.VarChar);
             command.Parameters["@arrivalCity"].Value = arrivalCity;
+
+            Console.WriteLine(command.CommandText);
+
             return CallSP(command, SERVER_NAME, BD_NAME, TABLE_NAME);
         }
         public DataSet DecrementVolSeatsById(int idVol, int nbSeats)

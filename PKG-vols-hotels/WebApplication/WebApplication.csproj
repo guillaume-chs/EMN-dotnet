@@ -107,6 +107,7 @@
     <TypeScriptCompile Include="app\navbar\navbar.component.ts" />
     <TypeScriptCompile Include="app\flight\flight-list\flight-list.component.ts" />
     <TypeScriptCompile Include="app\search-form\search-form.component.ts" />
+    <TypeScriptCompile Include="app\shared\model\Flight.ts" />
     <TypeScriptCompile Include="app\shared\model\JourneyResearch.ts" />
     <TypeScriptCompile Include="app\shared\services\cities.service.ts" />
     <TypeScriptCompile Include="app\shared\services\hotels.service.ts" />

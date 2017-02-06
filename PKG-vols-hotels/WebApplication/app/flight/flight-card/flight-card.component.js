@@ -20,6 +20,9 @@ var FlightCardComponent = (function () {
             _this.flight = flight;
         });
     }
+    FlightCardComponent.prototype.onUnselect = function () {
+        this.flightsService.unselectFlight();
+    };
     return FlightCardComponent;
 }());
 FlightCardComponent = __decorate([
@@ -28,7 +31,7 @@ FlightCardComponent = __decorate([
         selector: 'flight-card',
         providers: [],
         templateUrl: './flight-card.component.html',
-        styles: ["\n        .airplane-img {\n            min-width: 32px;\n            width: 15%;\n            margin-right: 1rem;\n        }\n        .airplane-content {\n            display: inline-block;\n            width: 66%;\n        }\n    "]
+        styles: ["\n        .airplane-img {\n            min-width: 32px;\n            width: 15%;\n            margin-right: 1rem;\n        }\n        .airplane-content {\n            display: inline-block;\n            width: 66%;\n        }\n        .card {\n            cursor: pointer;\n        }\n    "]
     }),
     __metadata("design:paramtypes", [flights_service_1.FlightsService])
 ], FlightCardComponent);

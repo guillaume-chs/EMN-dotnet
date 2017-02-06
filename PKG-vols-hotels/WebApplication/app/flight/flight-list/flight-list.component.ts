@@ -21,13 +21,26 @@ var module: any;
 export class FlightListComponent {
     flights: any[] = [];
     selectedFlight: number = -1;
+    initialized: boolean = false;
     submitted: boolean = false;
+    loading: boolean = false;
 
     constructor(private flightsService: FlightsService) {
-        this.flightsService.changeEventEmitter.subscribe((flights: any[]) => {
+        this.flightsService.searchStartedEvent.subscribe(() => {
+            this.loading = true;
+            if (!this.initialized) this.initialized = true;
+        });
+        this.flightsService.selectionEventEmitter.subscribe((flight: any) => {
+            if (!flight) {
+                this.selectedFlight = -1;
+                this.submitted = false;
+            }
+        });
+        this.flightsService.searchCompletedEvent.subscribe((flights: any[]) => {
             this.flights = flights;
             this.submitted = false;
             this.selectedFlight = -1;
+            this.loading = false;
         });
     }
 

@@ -47,7 +47,7 @@ export class SearchFormComponent {
         this.submitted = false;
         this.flightsService.unselectFlight();
         this.hotelsService.unselectHotel();
-        this.initUI();
+        setTimeout(this.initUI, 200);
     }
 
     ngAfterViewInit() {
@@ -63,6 +63,10 @@ export class SearchFormComponent {
             data: this.citiesService.cities,
             limit: 20 // The max amount of results that can be shown at once. Default: Infinity.
         });
+    }
+
+    updateDate(event: any) {
+        this.searchModel.departure_date = event.target.value;
     }
 
     get isFormValid(): boolean {

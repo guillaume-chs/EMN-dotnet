@@ -18,6 +18,9 @@ var module: any;
             display: inline-block;
             width: 66%;
         }
+        .card {
+            cursor: pointer;
+        }
     `]
 })
 export class FlightCardComponent {
@@ -27,5 +30,9 @@ export class FlightCardComponent {
         this.flightsService.selectionEventEmitter.subscribe((flight: any) => {
             this.flight = flight;
         });
+    }
+
+    onUnselect() {
+        this.flightsService.unselectFlight();
     }
 }
