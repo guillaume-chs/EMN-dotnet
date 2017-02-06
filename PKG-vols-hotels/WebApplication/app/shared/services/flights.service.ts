@@ -11,12 +11,14 @@ export class FlightsService {
     constructor(public http: Http) {
     }
 
-    public searchFlights(): void {
-        this.f = database;
-        this.flightsChange.emit(this.f);
+    public searchFlights(departureCity: string, arrivalCity: string, departureDate: string): void {
+        const queryString = `?departureCity=${departureCity}&arrivalCity=${arrivalCity}&departureDate=${departureDate}`;
 
-        this.http.get("http://localhost:53046/api/flights").subscribe(res => {
+        this.http.get("http://localhost:53046/api/flights/search" + queryString).subscribe(res => {
             console.log(res.json());
+
+            this.f = res.json();
+            this.flightsChange.emit(this.f);
         });
     }
 

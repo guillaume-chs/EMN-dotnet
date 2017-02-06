@@ -18,11 +18,13 @@ var FlightsService = (function () {
         this.flightsChange = new core_1.EventEmitter();
         this.flightSelection = new core_1.EventEmitter();
     }
-    FlightsService.prototype.searchFlights = function () {
-        this.f = database;
-        this.flightsChange.emit(this.f);
-        this.http.get("http://localhost:53046/api/flights").subscribe(function (res) {
+    FlightsService.prototype.searchFlights = function (departureCity, arrivalCity, departureDate) {
+        var _this = this;
+        var queryString = "?departureCity=" + departureCity + "&arrivalCity=" + arrivalCity + "&departureDate=" + departureDate;
+        this.http.get("http://localhost:53046/api/flights/search" + queryString).subscribe(function (res) {
             console.log(res.json());
+            _this.f = res.json();
+            _this.flightsChange.emit(_this.f);
         });
     };
     FlightsService.prototype.selectFlight = function (flightId) {

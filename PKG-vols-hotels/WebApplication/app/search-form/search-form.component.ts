@@ -39,7 +39,7 @@ export class SearchFormComponent {
 
     onSubmit() {
         this.submitted = true;
-        this.flightsService.searchFlights();
+        this.flightsService.searchFlights(this.searchModel.departure_city, this.searchModel.arrival_city, this.searchModel.departure_date);
         this.hotelsService.searchHotels();
     }
 
