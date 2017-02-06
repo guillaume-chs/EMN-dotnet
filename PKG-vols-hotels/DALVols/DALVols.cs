@@ -7,9 +7,10 @@ namespace ResaVoyages.DAL.DALVols
 {
     public class DALVols
     {
-        public const string SERVER_NAME = "PAUL\\SQLEXPRESS";
+        public const string SERVER_NAME = "KEPA-PC\\SQLEXPRESS";
         public const string BD_NAME = "VOLS";
         public const string TABLE_NAME = "VOLS";
+        public const string DATE_FORMAT = "yyyy'/'MM'/'dd";
 
         public DataSet GetVolById(int id)
         {
@@ -35,7 +36,7 @@ namespace ResaVoyages.DAL.DALVols
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.Add("@departureDate", SqlDbType.DateTime);
-            command.Parameters["@departureDate"].Value = dateDeparture;
+            command.Parameters["@departureDate"].Value = dateDeparture.ToString(DATE_FORMAT);;
             command.Parameters.Add("@departureCity", SqlDbType.VarChar);
             command.Parameters["@departureCity"].Value = departureCity;
             command.Parameters.Add("@arrivalCity", SqlDbType.VarChar);
