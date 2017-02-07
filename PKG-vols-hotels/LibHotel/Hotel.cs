@@ -74,16 +74,28 @@ namespace LibHotel
         }
 
 
-        public static void reserver(int idHotel, int nbRooms, string nom, string prenom)
+        public static Boolean reserver(int idHotel, int nbRooms)
         {
             DALHotels dalHotels = new DALHotels();
 
             if (Convert.ToInt32(dalHotels.GetHotelCapacityById(idHotel).Tables[0].Rows[0]["CAPACITY"].ToString()) > nbRooms)
             {
                 dalHotels.DecrementHotelSeatsById(idHotel, nbRooms);
-                
-                dalHotels.InsertReservationHotel(nom, prenom, nbRooms, idHotel);
+             
+                return true;
             }
+
+            return false;
+
+        }
+
+        public static void InsertReservationHotel(int idHotel, int nbRooms, string nom, string prenom)
+        {
+
+            DALHotels dalHotels = new DALHotels();
+            //A mettre dans une MSMQ
+            dalHotels.InsertReservationHotel(nom, prenom, nbRooms, idHotel);
+            
 
         }
 
