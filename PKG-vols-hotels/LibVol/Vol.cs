@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
 
 namespace ResaVoyages.BL.LibVol
@@ -133,8 +132,7 @@ namespace ResaVoyages.BL.LibVol
             if (Convert.ToInt32(dalVols.GetVolCapacityById(idVol).Tables[0].Rows[0]["CAPACITY"].ToString()) > nbSeats)
             {
                 dalVols.DecrementVolSeatsById(idVol, nbSeats);
-
-                //A mettre dans une MSMQ
+                
                 dalVols.AddReservationVol(nom, prenom, nbSeats, idVol);
             }
             

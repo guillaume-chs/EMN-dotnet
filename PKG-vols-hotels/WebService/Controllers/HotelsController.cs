@@ -3,6 +3,7 @@ using System.Web.Http;
 using ResaVoyages.BL.LibVol;
 using System;
 using System.Globalization;
+using ResaVoyages.BL.LibHotel;
 
 namespace WebService.Controllers
 {
@@ -10,10 +11,15 @@ namespace WebService.Controllers
     public class HotelsController : ApiController
     {
         [Route("api/hotels/search")]
-        public List<Vol> GetHotels([FromUri]string city, [FromUri]string arrivalDate)
+        public List<Hotel> GetHotels([FromUri]string city, [FromUri]string arrivalDate)
         {
-            //return Vol.GetVols(DateTime.ParseExact(departureDate, "dd/MM/yyyy", CultureInfo.InvariantCulture), departureCity, arrivalCity);
-            return new List<Vol>(0);
+           return Hotel.GetHotelsByCity(city);
+        }
+
+        [Route("api/hotels/reservation")]
+        public Boolean ReservationHotel([FromUri]int idHotel, [FromUri] int nbRooms)
+        {
+            return Hotel.reserver(idHotel, nbRooms);
         }
     }
 }
