@@ -10,8 +10,8 @@ namespace ResaVoyages.BL.LibVoyage
         [DataMember]
         public Vol Vol { get; set; }
         
-        // [DataMember]
-        // public Hotel Hotel { get; set}
+        [DataMember]
+        public Hotel Hotel { get; set; }
 
         public Voyage(Vol vol/*, Hotel hotel*/)
         {
