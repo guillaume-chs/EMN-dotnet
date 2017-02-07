@@ -30,7 +30,7 @@ namespace ResaVoyages.DAL.DALHotels
             return CallSP(command, SERVER_NAME, DB_NAME, TABLE_NAME);
         }
 
-        public DataSet GetHotelByCity(String city)
+        public DataSet GetHotelsByCity(String city)
         {
             SqlCommand command = new SqlCommand("sp_getHotelByCity");
             command.CommandType = CommandType.StoredProcedure;
