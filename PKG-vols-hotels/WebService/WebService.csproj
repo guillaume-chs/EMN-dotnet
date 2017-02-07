@@ -64,6 +64,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
       <Private>True</Private>
@@ -149,6 +150,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\FlightsController.cs" />
@@ -169,13 +171,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DALVols\DALVols.csproj">
-      <Project>{2E711BE1-1593-45EE-A92A-33B2E1533B7B}</Project>
-      <Name>DALVols</Name>
+    <ProjectReference Include="..\LibHotel\LibHotel.csproj">
+      <Project>{71666c2c-73e3-4b2f-8799-3b37b47f26fb}</Project>
+      <Name>LibHotel</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibVol\LibVol.csproj">
       <Project>{11ABAC91-B166-433C-88CF-1464FDAB097C}</Project>
       <Name>LibVol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibVoyage\LibVoyage.csproj">
+      <Project>{f6402852-7ab8-4b7a-bcbb-6d1f4bb455d6}</Project>
+      <Name>LibVoyage</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
