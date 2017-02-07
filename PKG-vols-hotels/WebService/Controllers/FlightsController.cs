@@ -9,10 +9,6 @@ namespace WebService.Controllers
     [Route("api/flights")]
     public class FlightsController : ApiController
     {
-        public Dictionary<string, List<string>> Get()
-        {
-            return Vol.GetCities();
-        }
 
         [Route("api/flights/search")]
         public List<Vol> GetVols([FromUri]string departureCity, [FromUri]string arrivalCity, [FromUri]string departureDate)

@@ -87,7 +87,7 @@ namespace ResaVoyages.BL.LibVol
         /**
          * Renvoie la liste des couples (ville de départ, villes d'arrivée)
          */
-        public static Dictionary<string, List<string>> GetCities()
+        public static Dictionary<string, List<string>> GetFlightCities()
         {
             DALVols dalVols = new DALVols();
             List<Vol> vols = DataSetToVols(dalVols.GetVols());
@@ -109,6 +109,21 @@ namespace ResaVoyages.BL.LibVol
             });
 
             return travels;
+        }
+
+        /**
+         * Renvoie la liste des villes connectées.
+         */
+
+        public static List<string> GetCities()
+        {
+            List<string> cities = new List<string>();
+            DataSetToVols(new DALVols().GetVols()).ForEach(v =>
+            {
+                if (!cities.Contains(v.DepartureCity)) cities.Add(v.DepartureCity);
+            });
+            
+            return cities;
         }
     }
 }
