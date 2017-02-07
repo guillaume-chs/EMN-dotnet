@@ -81,8 +81,7 @@ namespace LibHotel
             if (Convert.ToInt32(dalHotels.GetHotelCapacityById(idHotel).Tables[0].Rows[0]["CAPACITY"].ToString()) > nbRooms)
             {
                 dalHotels.DecrementHotelSeatsById(idHotel, nbRooms);
-
-                //A mettre dans une MSMQ
+                
                 dalHotels.InsertReservationHotel(nom, prenom, nbRooms, idHotel);
             }
 
