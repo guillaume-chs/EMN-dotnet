@@ -7,22 +7,20 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibHotel
+namespace ResaVoyages.BL.LibHotel
 {
-
     [DataContract]
     public class Hotel
     {
-
         [DataMember]
         public int IdHotel { get; set; }
 
         [DataMember]
         public string Name { get; set; }
-        
+
         [DataMember]
         public string City { get; set; }
-        
+
         [DataMember]
         public float Price { get; set; }
 
@@ -43,7 +41,7 @@ namespace LibHotel
             new Hotel(0, name, city, price, capacity);
         }
 
-         protected static List<Hotel> DataSetToHotels(DataSet dataSet)
+        protected static List<Hotel> DataSetToHotels(DataSet dataSet)
         {
             List<Hotel> hotels = new List<Hotel>();
 
@@ -81,7 +79,7 @@ namespace LibHotel
             if (Convert.ToInt32(dalHotels.GetHotelCapacityById(idHotel).Tables[0].Rows[0]["CAPACITY"].ToString()) > nbRooms)
             {
                 dalHotels.DecrementHotelSeatsById(idHotel, nbRooms);
-             
+
                 return true;
             }
 
@@ -95,9 +93,8 @@ namespace LibHotel
             DALHotels dalHotels = new DALHotels();
             //A mettre dans une MSMQ
             dalHotels.InsertReservationHotel(nom, prenom, nbRooms, idHotel);
-            
+
 
         }
-
     }
 }

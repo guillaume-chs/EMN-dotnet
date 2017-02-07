@@ -5,9 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.EnterpriseServices;
 using System.Messaging;
-using ResaVoyages.BL.LibVoyage;
 
-namespace LibVoyage
+namespace ResaVoyages.BL.LibVoyage
 {
     [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(), Description("File de reservations de voyages")]
     class FileReservation : ServicedComponent
