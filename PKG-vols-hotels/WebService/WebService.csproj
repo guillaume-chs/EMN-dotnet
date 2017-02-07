@@ -173,6 +173,10 @@
       <Project>{2E711BE1-1593-45EE-A92A-33B2E1533B7B}</Project>
       <Name>DALVols</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LibHotel\LibHotel.csproj">
+      <Project>{DD176CD9-6629-436C-8622-D8740484748C}</Project>
+      <Name>LibHotel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibVol\LibVol.csproj">
       <Project>{11ABAC91-B166-433C-88CF-1464FDAB097C}</Project>
       <Name>LibVol</Name>
