@@ -126,16 +126,23 @@ namespace ResaVoyages.BL.LibVol
             return cities;
         }
 
-        public static void reserver(int idVol, int nbSeats, string nom, string prenom)
+        public static Boolean reserver(int idVol, int nbSeats)
         {
             DALVols dalVols = new DALVols();
-            
+
             if (Convert.ToInt32(dalVols.GetVolCapacityById(idVol).Tables[0].Rows[0]["CAPACITY"].ToString()) > nbSeats)
             {
                 dalVols.DecrementVolSeatsById(idVol, nbSeats);
-                
-                dalVols.AddReservationVol(nom, prenom, nbSeats, idVol);
+                return true;
             }
+            return false;
+
+        }
+        public static void AddReservationVol(int idVol, int nbSeats, string nom, string prenom)
+        {
+            DALVols dalVols = new DALVols();
+            
+            dalVols.AddReservationVol(nom, prenom, nbSeats, idVol);
             
         }
     }

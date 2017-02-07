@@ -15,5 +15,11 @@ namespace WebService.Controllers
         {
             return Vol.GetVols(DateTime.ParseExact(departureDate, "dd/MM/yyyy", CultureInfo.InvariantCulture), departureCity, arrivalCity);
         }
+
+        [Route("api/flights/reservation")]
+        public Boolean ReservationFlight([FromUri]int idFlight, [FromUri] int nbRooms)
+        {
+            return Vol.reserver(idFlight, nbRooms);
+        }
     }
 }
