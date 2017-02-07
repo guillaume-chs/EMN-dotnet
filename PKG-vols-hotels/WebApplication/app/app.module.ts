@@ -15,6 +15,8 @@ import { HotelListComponent } from './hotel/hotel-list/hotel-list.component';
 import { HotelCardComponent } from './hotel/hotel-card/hotel-card.component';
 import { HotelsService } from './shared/services/hotels.service';
 
+import { CitiesService } from './shared/services/cities.service';
+
 @NgModule(({
     imports: [
         BrowserModule,
@@ -34,7 +36,8 @@ import { HotelsService } from './shared/services/hotels.service';
     bootstrap: [AppComponent],
     providers: [
         FlightsService,
-        HotelsService
+        HotelsService,
+        CitiesService
     ]
 }) as any)
 export class AppModule { }
