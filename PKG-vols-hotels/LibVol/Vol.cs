@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
 
 namespace ResaVoyages.BL.LibVol
