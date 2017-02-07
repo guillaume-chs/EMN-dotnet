@@ -16,5 +16,15 @@ namespace FileReservationmanager
         {
             InitializeComponent();
         }
+
+        private void ajoutFile_click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lireFile_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
