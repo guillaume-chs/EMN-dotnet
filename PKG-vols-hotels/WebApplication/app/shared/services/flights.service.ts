@@ -12,7 +12,7 @@ export class FlightsService {
     private searchCompleted: EventEmitter<Flight[]> = new EventEmitter<Flight[]>();
     private flightSelection: EventEmitter<Flight> = new EventEmitter<Flight>();
 
-    constructor(public http: Http) {
+    constructor(private  http: Http) {
     }
 
     public searchFlights(departureCity: string, arrivalCity: string, departureDate: string): void {

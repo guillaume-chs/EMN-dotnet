@@ -32,7 +32,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="card-action center">
+                <div class="card-action center" *ngIf="flights.length > 0">
                     <button type="button" class="btn btn-default" [disabled]="selectedFlight === undefined" (click)="onSubmit()">Réserver</button>
                 </div>
             </div>
