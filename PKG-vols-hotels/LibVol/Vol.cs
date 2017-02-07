@@ -110,7 +110,7 @@ namespace ResaVoyages.BL.LibVol
 
             return travels;
         }
-
+        
         /**
          * Renvoie la liste des villes connectées.
          */
@@ -124,6 +124,20 @@ namespace ResaVoyages.BL.LibVol
             });
             
             return cities;
+        }
+
+        public static void reserver(int idVol, int nbSeats, string nom, string prenom)
+        {
+            DALVols dalVols = new DALVols();
+            
+            if (Convert.ToInt32(dalVols.GetVolCapacityById(idVol).Tables[0].Rows[0]["CAPACITY"].ToString()) > nbSeats)
+            {
+                dalVols.DecrementVolSeatsById(idVol, nbSeats);
+
+                //A mettre dans une MSMQ
+                dalVols.AddReservationVol(nom, prenom, nbSeats, idVol);
+            }
+            
         }
     }
 }

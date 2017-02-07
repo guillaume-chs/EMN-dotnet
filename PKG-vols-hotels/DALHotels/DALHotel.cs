@@ -51,7 +51,7 @@ namespace ResaVoyages.DAL.DALHotels
             command.Parameters["@nbRooms"].Value = nbSeats;
             return CallSP(command, SERVER_NAME, DB_NAME, TABLE_NAME);
         }
-        public DataSet GetHotelCapacityById(int idHotel, int nbSeats)
+        public DataSet GetHotelCapacityById(int idHotel)
         {
             SqlCommand command = new SqlCommand("sp_getHotelCapacityById");
             command.CommandType = CommandType.StoredProcedure;
