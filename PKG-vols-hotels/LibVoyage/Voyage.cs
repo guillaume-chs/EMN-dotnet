@@ -13,6 +13,12 @@ namespace ResaVoyages.BL.LibVoyage
         [DataMember]
         public Hotel Hotel { get; set; }
 
+        [DataMember]
+        public string nom { get; set; }
+
+        [DataMember]
+        public string prenom { get; set; }
+
         public Voyage(Vol vol, Hotel hotel)
         {
             this.Vol = vol;
