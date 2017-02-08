@@ -22,8 +22,8 @@ namespace ResaVoyages.BL.LibVoyage
             
             using (TransactionScope transaction = new TransactionScope())
             {
-                Vol.AddReservationVol(voyage.Vol.IdVol, 1, "john", "doe");
-                Hotel.InsertReservationHotel(voyage.Hotel.IdHotel, 1, "john", "doe");
+                Vol.AddReservationVol(voyage.Vol.IdVol, 1, voyage.prenom, voyage.nom);
+                Hotel.InsertReservationHotel(voyage.Hotel.IdHotel, 1, voyage.prenom, voyage.nom);
 
                 transaction.Complete();
 
