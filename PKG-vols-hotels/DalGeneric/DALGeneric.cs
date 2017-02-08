@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.EnterpriseServices;
 
 namespace ResaVoyages.DAL.DALGeneric
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(), Description("DAL generique dexecution de requete SQL")]
-    public class DALGeneric: ServicedComponent
+    public class DALGeneric
     {
         public static DataSet CallSP(SqlCommand command, String serverName, String dbName, String tableName)
         {

@@ -2,13 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.EnterpriseServices;
 using System.Runtime.Serialization;
 
 namespace ResaVoyages.BL.LibVol
 {
     [DataContract]
-    public class Vol: ServicedComponent
+    public class Vol
     {
         [DataMember]
         public int IdVol { get; set; }
@@ -82,11 +81,6 @@ namespace ResaVoyages.BL.LibVol
             List<Vol> vols = DataSetToVols(dalVols.GetVolsByDepartureDateDepartureCityArrivalCity(departureDate, departureCity, arrivalCity));
 
             return vols;
-        }
-
-        public static Vol GetVolById(int id)
-        {
-            return DataSetToVols(new DALVols().GetVolById(id))[0];
         }
 
         /**

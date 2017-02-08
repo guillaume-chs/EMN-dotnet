@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.EnterpriseServices;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -11,7 +10,7 @@ using System.Threading.Tasks;
 namespace ResaVoyages.BL.LibHotel
 {
     [DataContract]
-    public class Hotel : ServicedComponent
+    public class Hotel
     {
         [DataMember]
         public int IdHotel { get; set; }
@@ -70,11 +69,6 @@ namespace ResaVoyages.BL.LibHotel
             List<Hotel> hotels = DataSetToHotels(dalHotels.GetHotelsByCity(city));
 
             return hotels;
-        }
-
-        public static Hotel GetHotelById(int id)
-        {
-            return DataSetToHotels(new DALHotels().GetHotelById(id))[0];
         }
 
 

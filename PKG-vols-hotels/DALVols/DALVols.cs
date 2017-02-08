@@ -2,12 +2,10 @@
 using System.Data;
 using System.Data.SqlClient;
 using System;
-using System.EnterpriseServices;
 
 namespace ResaVoyages.DAL.DALVols
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(), Description("dal pour les voyages")]
-    public class DALVols: ServicedComponent
+    public class DALVols
     {
         public const string SERVER_NAME = "(localdb)\\MSSQLLocalDB";
         public const string BD_NAME = "VOLS";
