@@ -18,6 +18,9 @@ var module: any;
             display: inline-block;
             width: 66%;
         }
+        .card {
+            cursor: pointer;
+        }
     `]
 })
 export class HotelCardComponent {
@@ -28,5 +31,9 @@ export class HotelCardComponent {
             this.hotel = hotel;
             console.log(this.hotel);
         });
+    }
+
+    onUnselect() {
+        this.hotelsService.unselectHotel();
     }
 }

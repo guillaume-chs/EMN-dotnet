@@ -1,15 +1,31 @@
 ﻿import { Injectable, EventEmitter } from '@angular/core';
+import { Http, Response } from '@angular/http';
+
+import { Hotel } from '../model/Hotel';
 
 @Injectable()
 export class HotelsService {
-    private h: any[] = [];
+    private h: Hotel[] = [];
     private selectedIndex: number = -1;
-    private hotelsChange: EventEmitter<any> = new EventEmitter();
-    private hotelSelection: EventEmitter<any> = new EventEmitter();
 
-    public searchHotels(): void {
-        this.h = database;
-        this.hotelsChange.emit(this.h);
+    private searchStarted: EventEmitter<any> = new EventEmitter();
+    private searchCompleted: EventEmitter<Hotel[]> = new EventEmitter<Hotel[]>();
+    private hotelSelection: EventEmitter<Hotel> = new EventEmitter<Hotel>();
+
+    constructor(private http: Http) {
+    }
+
+    public searchHotels() {
+        this.searchStarted.emit();
+        const queryString = `?`;
+        this.http.get("http://localhost:53046/api/hotels" + queryString).subscribe(res => {
+            this.h = res.json();
+            this.searchCompleted.emit(this.h);
+        }, (error: any) => {
+            this.h = [];
+            console.log(error);
+            this.searchCompleted.emit(this.h);
+        });
     }
 
     public selectHotel(hotelId: number) {
@@ -20,7 +36,6 @@ export class HotelsService {
                 return;
             }
         }
-
         this.selectedIndex = -1;
     }
 
@@ -36,24 +51,20 @@ export class HotelsService {
     }
 
     public get selectedHotel(): any {
-        if (this.selectedIndex >= 0) {
-            return this.h[this.selectedIndex];
-        } else {
-            return -1;
-        }
+        return (this.selectedIndex >= 0)
+            ? this.h[this.selectedIndex]
+            : -1;
     }
 
-    public get changeEventEmitter(): EventEmitter<any> {
-        return this.hotelsChange;
+    public get searchStartedEvent(): EventEmitter<any> {
+        return this.searchStarted;
     }
 
-    public get selectionEventEmitter(): EventEmitter<any> {
+    public get searchCompletedEvent(): EventEmitter<Hotel[]> {
+        return this.searchCompleted;
+    }
+
+    public get selectionEventEmitter(): EventEmitter<Hotel> {
         return this.hotelSelection;
     }
 }
-
-
-const database = [
-    { id: 1, name: "Hôtel Paris", city: "Paris", price: "80", capacity: 20 },
-    { id: 2, name: "Hôtel New York", city: "New York", price: "1700", capacity: 12 }
-];

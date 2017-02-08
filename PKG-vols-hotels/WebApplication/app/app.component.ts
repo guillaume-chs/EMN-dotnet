@@ -16,6 +16,8 @@ import { Component } from '@angular/core';
 
         <flight-list></flight-list>
         <hotel-list></hotel-list>
+
+        <checkout></checkout>
     `
 })
 export class AppComponent { }

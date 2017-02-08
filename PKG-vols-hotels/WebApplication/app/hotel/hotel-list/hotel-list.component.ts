@@ -21,13 +21,26 @@ var module: any;
 export class HotelListComponent {
     hotels: any[] = [];
     selectedHotel: number = -1;
+    initialized: boolean = false;
     submitted: boolean = false;
+    loading: boolean = false;
 
     constructor(private hotelsService: HotelsService) {
-        this.hotelsService.changeEventEmitter.subscribe((hotels: any[]) => {
+        this.hotelsService.searchStartedEvent.subscribe(() => {
+            this.loading = true;
+            if (!this.initialized) this.initialized = true;
+        });
+        this.hotelsService.selectionEventEmitter.subscribe((hotel: any) => {
+            if (!hotel) {
+                this.selectedHotel = -1;
+                this.submitted = false;
+            }
+        });
+        this.hotelsService.searchCompletedEvent.subscribe((hotels: any[]) => {
             this.hotels = hotels;
             this.submitted = false;
             this.selectedHotel = -1;
+            this.loading = false;
         });
     }
 

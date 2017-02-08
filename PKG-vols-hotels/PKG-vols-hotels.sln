@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26020.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{E6E5A248-A43B-4474-9455-0079E77A88C9}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibVol", "LibVol\LibVol.csproj", "{11ABAC91-B166-433C-88CF-1464FDAB097C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALGeneric", "DalGeneric\DALGeneric.csproj", "{1976EA4A-ACCF-4B51-991D-EA76D9C715D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibHotel", "LibHotel\LibHotel.csproj", "{71666C2C-73E3-4B2F-8799-3B37B47F26FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{1976EA4A-ACCF-4B51-991D-EA76D9C715D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1976EA4A-ACCF-4B51-991D-EA76D9C715D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1976EA4A-ACCF-4B51-991D-EA76D9C715D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71666C2C-73E3-4B2F-8799-3B37B47F26FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71666C2C-73E3-4B2F-8799-3B37B47F26FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71666C2C-73E3-4B2F-8799-3B37B47F26FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71666C2C-73E3-4B2F-8799-3B37B47F26FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,5 +70,6 @@ Global
 		{1D8C6815-7482-4154-B3C3-3E0E635C4077} = {D967FD76-99F7-4AFE-A4A3-F4B67C8C2DFB}
 		{11ABAC91-B166-433C-88CF-1464FDAB097C} = {38817FC1-F1D4-45F7-B3AD-F21871FA4B13}
 		{1976EA4A-ACCF-4B51-991D-EA76D9C715D2} = {E6E5A248-A43B-4474-9455-0079E77A88C9}
+		{71666C2C-73E3-4B2F-8799-3B37B47F26FB} = {38817FC1-F1D4-45F7-B3AD-F21871FA4B13}
 	EndGlobalSection
 EndGlobal

@@ -17,11 +17,25 @@ var HotelListComponent = (function () {
         this.hotelsService = hotelsService;
         this.hotels = [];
         this.selectedHotel = -1;
+        this.initialized = false;
         this.submitted = false;
-        this.hotelsService.changeEventEmitter.subscribe(function (hotels) {
+        this.loading = false;
+        this.hotelsService.searchStartedEvent.subscribe(function () {
+            _this.loading = true;
+            if (!_this.initialized)
+                _this.initialized = true;
+        });
+        this.hotelsService.selectionEventEmitter.subscribe(function (hotel) {
+            if (!hotel) {
+                _this.selectedHotel = -1;
+                _this.submitted = false;
+            }
+        });
+        this.hotelsService.searchCompletedEvent.subscribe(function (hotels) {
             _this.hotels = hotels;
             _this.submitted = false;
             _this.selectedHotel = -1;
+            _this.loading = false;
         });
     }
     HotelListComponent.prototype.selectHotel = function (index) {

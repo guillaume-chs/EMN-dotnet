@@ -15,7 +15,10 @@ import { HotelListComponent } from './hotel/hotel-list/hotel-list.component';
 import { HotelCardComponent } from './hotel/hotel-card/hotel-card.component';
 import { HotelsService } from './shared/services/hotels.service';
 
+import { CheckoutComponent } from './checkout/checkout.component';
+
 import { CitiesService } from './shared/services/cities.service';
+import { ResaService } from './shared/services/resa.service';
 
 @NgModule(({
     imports: [
@@ -31,13 +34,15 @@ import { CitiesService } from './shared/services/cities.service';
         FlightListComponent,
         FlightCardComponent,
         HotelListComponent,
-        HotelCardComponent
+        HotelCardComponent,
+        CheckoutComponent
     ],
     bootstrap: [AppComponent],
     providers: [
         FlightsService,
         HotelsService,
-        CitiesService
+        CitiesService,
+        ResaService
     ]
 }) as any)
 export class AppModule { }

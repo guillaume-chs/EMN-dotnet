@@ -1,9 +1,18 @@
-﻿<div class="container" *ngIf="hotels.length > 0 && !submitted">
+﻿<div class="container" *ngIf="loading">
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
+</div>
+
+<div class="container" *ngIf="initialized && !submitted && !loading">
     <div class="row">
         <div class="col s12">
             <div class="card">
                 <div class="card-content">
-                    <table class="highlight">
+                    <span class="card-title" *ngIf="hotels.length === 0">
+                        Pas d'hotels disponibles...
+                    </span>
+                    <table class="highlight" *ngIf="hotels.length > 0">
                         <thead>
                             <tr>
                                 <th data-field="name">Hôtel</th>
@@ -23,7 +32,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="card-action center">
+                <div class="card-action center" *ngIf="hotels.length > 0">
                     <button type="button" class="btn btn-default" [disabled]="selectedHotel === undefined" (click)="onSubmit()">Réserver</button>
                 </div>
             </div>

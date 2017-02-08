@@ -21,6 +21,9 @@ var HotelCardComponent = (function () {
             console.log(_this.hotel);
         });
     }
+    HotelCardComponent.prototype.onUnselect = function () {
+        this.hotelsService.unselectHotel();
+    };
     return HotelCardComponent;
 }());
 HotelCardComponent = __decorate([
@@ -29,7 +32,7 @@ HotelCardComponent = __decorate([
         selector: 'hotel-card',
         providers: [],
         templateUrl: './hotel-card.component.html',
-        styles: ["\n        .hotel-img {\n            min-width: 32px;\n            width: 15%;\n            margin-right: 1rem;\n        }\n        .hotel-content {\n            display: inline-block;\n            width: 66%;\n        }\n    "]
+        styles: ["\n        .hotel-img {\n            min-width: 32px;\n            width: 15%;\n            margin-right: 1rem;\n        }\n        .hotel-content {\n            display: inline-block;\n            width: 66%;\n        }\n        .card {\n            cursor: pointer;\n        }\n    "]
     }),
     __metadata("design:paramtypes", [hotels_service_1.HotelsService])
 ], HotelCardComponent);
