@@ -29,6 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>libvoyage.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,13 +55,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibHotel\LibHotel.csproj">
+<<<<<<< HEAD
       <Project>{dd176cd9-6629-436c-8622-d8740484748c}</Project>
+=======
+      <Project>{71666c2c-73e3-4b2f-8799-3b37b47f26fb}</Project>
+>>>>>>> 127eb12f32d4b3bedb45ac284c4e503b03341ba3
       <Name>LibHotel</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibVol\LibVol.csproj">
       <Project>{11abac91-b166-433c-88cf-1464fdab097c}</Project>
       <Name>LibVol</Name>
     </ProjectReference>
+<<<<<<< HEAD
+=======
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libvoyage.snk" />
+>>>>>>> 127eb12f32d4b3bedb45ac284c4e503b03341ba3
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

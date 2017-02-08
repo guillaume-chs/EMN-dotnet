@@ -9,12 +9,12 @@ using System.Messaging;
 namespace ResaVoyages.BL.LibVoyage
 {
     [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(), Description("File de reservations de voyages")]
-    class FileReservation : ServicedComponent
+    public class FileReservation : ServicedComponent
     {
         [AutoComplete]
-        public Voyage LireFile()
+        public static Voyage LireFile()
         {
-            MessageQueue file = new MessageQueue(@".\private$\fileResa");
+            MessageQueue file = new MessageQueue(@".\private$\ResaVoyage");
             file.Formatter = new XmlMessageFormatter(new Type[] { typeof(Voyage) });
 
             Voyage voyage = (Voyage)file.Peek().Body;
@@ -23,6 +23,14 @@ namespace ResaVoyages.BL.LibVoyage
             file.Close();
 
             return voyage;
+        }
+
+        [AutoComplete]
+        public static void EcrireFile(Voyage voyage)
+        {
+            MessageQueue file = new MessageQueue(@".\private$\ResaVoyage");
+            file.Send(voyage);
+            file.Close();
         }
     }
 }

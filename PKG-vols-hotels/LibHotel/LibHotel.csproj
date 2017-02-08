@@ -4,7 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+<<<<<<< HEAD
     <ProjectGuid>{DD176CD9-6629-436C-8622-D8740484748C}</ProjectGuid>
+=======
+    <ProjectGuid>{71666C2C-73E3-4B2F-8799-3B37B47F26FB}</ProjectGuid>
+>>>>>>> 127eb12f32d4b3bedb45ac284c4e503b03341ba3
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LibHotel</RootNamespace>
@@ -29,9 +33,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>libhotel.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+<<<<<<< HEAD
+=======
+    <Reference Include="System.EnterpriseServices" />
+>>>>>>> 127eb12f32d4b3bedb45ac284c4e503b03341ba3
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,5 +64,11 @@
       <Name>DALHotels</Name>
     </ProjectReference>
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <None Include="libhotel.snk" />
+  </ItemGroup>
+>>>>>>> 127eb12f32d4b3bedb45ac284c4e503b03341ba3
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
