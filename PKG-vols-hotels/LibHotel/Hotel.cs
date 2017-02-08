@@ -41,6 +41,16 @@ namespace ResaVoyages.BL.LibHotel
             new Hotel(0, name, city, price, capacity);
         }
 
+        public Hotel()
+        {
+
+        }
+
+        public static Hotel GetHotelById(int id)
+        {
+            return DataSetToHotels(new DALHotels().GetHotelById(id))[0];
+        }
+
         protected static List<Hotel> DataSetToHotels(DataSet dataSet)
         {
             List<Hotel> hotels = new List<Hotel>();

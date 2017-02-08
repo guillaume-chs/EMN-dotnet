@@ -7,7 +7,6 @@ namespace ResaVoyages.DAL.DALVols
 {
     public class DALVols
     {
-        public const string SERVER_NAME = "(localdb)\\MSSQLLocalDB";
         public const string BD_NAME = "VOLS";
         public const string TABLE_NAME = "VOLS";
         public const string DATE_FORMAT = "yyyy'/'MM'/'dd";

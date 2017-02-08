@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ResaVoyages.BL.LibVoyage;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,14 +18,15 @@ namespace FileReservationmanager
             InitializeComponent();
         }
 
-        private void ajoutFile_click(object sender, EventArgs e)
-        {
-
-        }
-
         private void lireFile_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                TransactionVoyage.Transact();
+            } catch(Exception ee)
+            {
+                MessageBox.Show(ee.Message, "Erreur");
+            }
         }
     }
 }

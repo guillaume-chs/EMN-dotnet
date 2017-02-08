@@ -3,26 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.EnterpriseServices;
 using System.Messaging;
 
 namespace ResaVoyages.BL.LibVoyage
 {
-    [Transaction(TransactionOption.Required), ObjectPooling(5, 10), EventTrackingEnabled(), Description("File de reservations de voyages")]
-    class FileReservation : ServicedComponent
+    public class FileReservation
     {
-        [AutoComplete]
-        public Voyage LireFile()
+        public static void EcrireFile(Voyage voyage)
         {
-            MessageQueue file = new MessageQueue(@".\private$\fileResa");
-            file.Formatter = new XmlMessageFormatter(new Type[] { typeof(Voyage) });
-
-            Voyage voyage = (Voyage)file.Peek().Body;
-
-            file.Receive();
+            MessageQueue file = new MessageQueue(@".\private$\resaVoyage");
+            file.Send(voyage);
             file.Close();
-
-            return voyage;
         }
     }
 }
