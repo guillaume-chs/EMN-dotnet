@@ -10,7 +10,7 @@ export class ResaService {
     }
 
     public reserveVoyage(vol: Flight, hotel: Hotel, lastname: string, firstname: string) {
-        const queryString = `?hotelId=${hotel.id}&volId=${vol.id}&lastname=${lastname}&firstname=${firstname}`;
+        const queryString = `?hotelId=${hotel.id}&volId=${vol.id}&nom=${lastname}&prenom=${firstname}`;
         return this.http.get("http://localhost:53046/api/reserve" + queryString);
     }
 }

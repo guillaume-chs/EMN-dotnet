@@ -72,6 +72,8 @@
     <Content Include="app\assets\images\airplane.png" />
     <Content Include="app\assets\images\hotel.png" />
     <Content Include="app\assets\images\logo.jpg" />
+    <Content Include="app\checkout\checkout.component.html" />
+    <Content Include="app\checkout\checkout.component.js" />
     <Content Include="app\flight\flight-card\flight-card.component.html" />
     <Content Include="app\hotel\hotel-card\hotel-card.component.html" />
     <Content Include="app\hotel\hotel-list\hotel-list.component.html" />
@@ -84,6 +86,7 @@
     <Content Include="systemjs.config.js" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
+    <Content Include="app\checkout\checkout.component.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -100,6 +103,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\checkout\checkout.component.ts" />
     <TypeScriptCompile Include="app\flight\flight-card\flight-card.component.ts" />
     <TypeScriptCompile Include="app\hotel\hotel-card\hotel-card.component.ts" />
     <TypeScriptCompile Include="app\hotel\hotel-list\hotel-list.component.ts" />
@@ -108,10 +112,12 @@
     <TypeScriptCompile Include="app\flight\flight-list\flight-list.component.ts" />
     <TypeScriptCompile Include="app\search-form\search-form.component.ts" />
     <TypeScriptCompile Include="app\shared\model\Flight.ts" />
+    <TypeScriptCompile Include="app\shared\model\Hotel.ts" />
     <TypeScriptCompile Include="app\shared\model\JourneyResearch.ts" />
     <TypeScriptCompile Include="app\shared\services\cities.service.ts" />
     <TypeScriptCompile Include="app\shared\services\hotels.service.ts" />
     <TypeScriptCompile Include="app\shared\services\flights.service.ts" />
+    <TypeScriptCompile Include="app\shared\services\resa.service.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

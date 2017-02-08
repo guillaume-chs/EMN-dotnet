@@ -12,7 +12,7 @@ export class CitiesService {
 
     public searchCities() {
         this.searchStarted.emit();
-        this.http.get("http://localhost:53046/api/cities").subscribe(res => {
+        this.http.get("http://localhost:53046/api/cities").subscribe((res: any) => {
             this.c = res.json();
             console.log(this.c.length + ' cities loaded');
             this.searchCompleted.emit(this.c);

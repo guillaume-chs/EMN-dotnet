@@ -12,6 +12,8 @@ var module: any;
     templateUrl: './checkout.component.html'
 })
 export class CheckoutComponent {
+    flight: any = {};
+    hotel: any = {};
     firstname: string = "";
     lastname: string = "";
 
@@ -21,14 +23,20 @@ export class CheckoutComponent {
     constructor(private resaService: ResaService,
                 private flightsService: FlightsService,
                 private hotelsService: HotelsService) {
+        this.flightsService.selectionEventEmitter.subscribe((flight: any) => {
+            this.flight = flight;
+        });
+        this.hotelsService.selectionEventEmitter.subscribe((hotel: any) => {
+            this.hotel = hotel;
+        });
     }
 
     onSubmit() {
         this.submitted = true;
         this.loading = true;
         this.resaService.reserveVoyage(
-            this.flightsService.selectedFlight(),
-            this.hotelsService.selectedHotel(),
+            this.flight.id,
+            this.flight.id,
             this.firstname,
             this.lastname
         ).subscribe((res: any) => {

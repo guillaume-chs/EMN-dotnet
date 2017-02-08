@@ -15,7 +15,7 @@ var ResaService = (function () {
         this.http = http;
     }
     ResaService.prototype.reserveVoyage = function (vol, hotel, lastname, firstname) {
-        var queryString = "?hotelId=" + hotel.id + "&volId=" + vol.id + "&lastname=" + lastname + "&firstname=" + firstname;
+        var queryString = "?hotelId=" + hotel.id + "&volId=" + vol.id + "&nom=" + lastname + "&prenom=" + firstname;
         return this.http.get("http://localhost:53046/api/reserve" + queryString);
     };
     return ResaService;
