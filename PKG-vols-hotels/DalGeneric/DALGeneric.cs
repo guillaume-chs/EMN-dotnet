@@ -6,6 +6,7 @@ namespace ResaVoyages.DAL.DALGeneric
 {
     public class DALGeneric
     {
+        public const string SERVER_NAME = "KEPA-PC\\SQLEXPRESS";
         public static DataSet CallSP(SqlCommand command, String serverName, String dbName, String tableName)
         {
             DataSet result = new DataSet();

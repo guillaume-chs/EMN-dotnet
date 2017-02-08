@@ -50,6 +50,11 @@ namespace ResaVoyages.BL.LibVol
             new Vol(0, name, departureDate, arrivalDate, departureCity, arrivalCity, price, capacity);
         }
 
+        public Vol()
+        {
+
+        }
+
         protected static List<Vol> DataSetToVols(DataSet dataSet)
         {
             List<Vol> vols = new List<Vol>();
@@ -81,6 +86,15 @@ namespace ResaVoyages.BL.LibVol
             List<Vol> vols = DataSetToVols(dalVols.GetVolsByDepartureDateDepartureCityArrivalCity(departureDate, departureCity, arrivalCity));
 
             return vols;
+        }
+
+        public static Vol GetVolById(int id)
+        {
+            DALVols dalVols = new DALVols();
+            DataSet result = dalVols.GetVolById(id);
+            List<Vol> vols = DataSetToVols(result);
+
+            return vols[0];
         }
 
         /**

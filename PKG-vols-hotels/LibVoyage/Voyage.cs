@@ -1,12 +1,11 @@
 ﻿using ResaVoyages.BL.LibVol;
 using ResaVoyages.BL.LibHotel;
-using System.EnterpriseServices;
 using System.Runtime.Serialization;
 
 namespace ResaVoyages.BL.LibVoyage
 {
     [DataContract]
-    public class Voyage : ServicedComponent
+    public class Voyage
     {
         [DataMember]
         public Vol Vol { get; set; }
@@ -18,6 +17,11 @@ namespace ResaVoyages.BL.LibVoyage
         {
             this.Vol = vol;
             this.Hotel = hotel;
+        }
+
+        public Voyage()
+        {
+
         }
     }
 }

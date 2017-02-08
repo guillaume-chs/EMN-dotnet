@@ -152,6 +152,7 @@
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
     <Compile Include="Controllers\FlightsController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,9 +174,17 @@
       <Project>{2E711BE1-1593-45EE-A92A-33B2E1533B7B}</Project>
       <Name>DALVols</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LibHotel\LibHotel.csproj">
+      <Project>{71666C2C-73E3-4B2F-8799-3B37B47F26FB}</Project>
+      <Name>LibHotel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibVol\LibVol.csproj">
       <Project>{11ABAC91-B166-433C-88CF-1464FDAB097C}</Project>
       <Name>LibVol</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibVoyage\LibVoyage.csproj">
+      <Project>{F6402852-7AB8-4B7A-BCBB-6D1F4BB455D6}</Project>
+      <Name>LibVoyage</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
